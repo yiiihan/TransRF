@@ -40,6 +40,5 @@ test=/your/path/TransRF/test_data/sim_test
 outPath=/your/path/TransRF/out
 
 ### Run TransRF
-Rsricpt ${TransRF}  --tar ${tar}.txt --src ${src}.txt --val ${val}.txt --test ${test}.txt --outPath ${outPath}
-
-````
+Rsricpt \$\{TransRF\}  --tar ${tar}.txt --src ${src}.txt --val ${val}.txt --test ${test}.txt --outPath ${outPath}
+```
