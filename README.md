@@ -10,6 +10,9 @@ TransRF is based on an ensemble of multiple transfer learning approaches, each c
 install.packages(c("randomForest`", "truncnorm", "dplyr"), dependencies=TRUE)
 ```
 
+R package `viRandomForests` based on the original R package “randomForest” and it can be freely downloaded from http://zhaocenter.org/ software.
+
 ```r
-install.packages("/n/home11/yhan/software/viRandomForests_1.0.tar.gz", repos=NULL, type="source") ```
+install.packages("/path/viRandomForests_1.0.tar.gz", repos=NULL, type="source")
+```
 
