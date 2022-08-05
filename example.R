@@ -31,9 +31,9 @@ y.test=dat.test[,1]
 ##### example 2: read data 
 #################################
 
-dat.tar=read.table('/yourpath/TransRF/test/data/sim_tar.txt',header=F)
-dat.test=read.table('/yourpath/TransRF/test/data/sim_test.txt',header=F)
-dat.src=read.table('/yourpath/TransRF/test/data/sim_src.txt',header=F)
+dat.tar=read.table('/yourpath/TransRF/test_data/sim_tar.txt',header=F)
+dat.test=read.table('/yourpath/TransRF/test_data/sim_test.txt',header=F)
+dat.src=read.table('/yourpath/TransRF/test_data/sim_src.txt',header=F)
 
 X=dat.tar[,-1]
 y=dat.tar[,1]
