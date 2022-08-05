@@ -48,7 +48,7 @@ y.test=dat.test[,1]
 rf.src = viRandomForests(y.src ~ ., data=dat.src, ntree=500, fprob=NULL, keep.forest=TRUE, importance=TRUE)
 S = importancenew(rf.src, type=2) 
 
-source('/yourpath/TransRF/TransRF_tg.R')
+source('/yourpath/TransRF/TransRF.R')
 ypred = transRF(X, y, X.test, rf.src,S)
 get.mse(y.test,ypred$y.transrf)
 
