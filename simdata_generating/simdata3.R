@@ -1,8 +1,10 @@
 m.src <- function(X){
   p = ncol(X)
   X.trans = rep(0, nrow(X))
+  id = rep(0, nrow(X))
+  threshold = sum(X)/nrow(X)
   for(i in 1:nrow(X)){
-    X.trans[i] = sum(sqrt(abs(X[i,])) * c(rep(1,p/2), rep(-0.5,p/2)))
+    X.trans[i] = sum(X[i,] * c(rep(1,p/2), rep(-0.5,p/2))*(1-0.5*as.numeric(sum(X[i,])>threshold)))
   }
   return(X.trans)
 }
