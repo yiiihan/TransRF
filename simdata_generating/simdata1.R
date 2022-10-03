@@ -1,11 +1,12 @@
 library(truncnorm)
 
-m.src <- function(X, beta){
+m.src <- function(X){
   p = ncol(X)
   X.trans = rep(0, nrow(X))
+  id = rep(0, nrow(X))
+  threshold = sum(X)/nrow(X)
   for(i in 1:nrow(X)){
-    trans = (sqrt(abs(X[i,])) * c(rep(1,p/4), rep(-0.5,p/4), rep(-0.8,p/4), rep(0.5,p/4)))
-    X.trans[i] = sum(trans*beta)
+    X.trans[i] = sum(X[i,] * c(rep(1,p/2), rep(-0.5,p/2))*(1-0.5*as.numeric(sum(X[i,])>threshold)))
   }
   return(X.trans)
 }
@@ -13,12 +14,17 @@ m.src <- function(X, beta){
 m.tar <- function(X, beta){
   p = ncol(X)
   X.trans = rep(0, nrow(X))
+  id = rep(0, nrow(X))
+  threshold = sum(X)/nrow(X)
   for(i in 1:nrow(X)){
-    trans = (abs(X[i,])^2 * c(rep(1,p/2), rep(-2,p/2)))
+    trans = X[i,] * c(rep(0.5,p/2), rep(-0.5,p/2))*(1-0.2*as.numeric(sum(X[i,])>threshold))
+    id[i] = as.numeric(sum(X[i,])>threshold)
     X.trans[i] = sum(trans*beta)
   }
+  print(summary(id))
   return(X.trans)
 }
+
 
 
 simdata1 <- function(p,j,n.tar,n.src,n.test){
