@@ -1,5 +1,5 @@
 #################################
-##### example 1: simulate data 
+##### Example 1: Simulate Data 
 #################################
 
 source('/yourpath/TransRF/simdata_generating/simdata3.R')
@@ -28,7 +28,7 @@ X.test=dat.test[,-1]
 y.test=dat.test[,1]
 
 #################################
-##### example 2: read data 
+##### Example 2: Read Data 
 #################################
 
 dat.tar=read.table('/yourpath/TransRF/test_data/sim_tar.txt',header=F)
@@ -44,10 +44,11 @@ X.test=dat.test[,-1]
 y.test=dat.test[,1]
 
 #################################
+##### Run Source Model
+#################################
 
 rf.src = viRandomForests(y.src ~ ., data=dat.src, ntree=500, fprob=NULL, keep.forest=TRUE, importance=TRUE)
 S = importancenew(rf.src, type=2) 
-
 
 #################################
 ##### Run TransRF
